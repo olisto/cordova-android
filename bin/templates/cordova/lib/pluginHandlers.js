@@ -26,7 +26,7 @@ var handlers = {
             if (!obj.src) throw new CordovaError(generateAttributeError('src', 'source-file', plugin.id));
             if (!obj.targetDir) throw new CordovaError(generateAttributeError('target-dir', 'source-file', plugin.id));
 
-            var dest = studioPathRemap(obj);
+            var dest = studioPathRemap(obj) || dest;
 
             if (options && options.force) {
                 copyFile(plugin.dir, obj.src, project.projectDir, dest, !!(options && options.link));
